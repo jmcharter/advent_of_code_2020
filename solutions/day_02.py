@@ -22,27 +22,27 @@ In the above example, 2 passwords are valid. The middle password, cdefg, is not;
 How many passwords are valid according to their policies?
 '''
 # Part one
-with open("input/day_02/day_02_p_01.txt", "r") as f:
-    data = [line.strip().split(": ") for line in f.readlines()]
-    for i in range(len(data)):
-        data[i][0] = data[i][0].split(" ")
-        data[i][0][0] = data[i][0][0].split("-")
+# with open("input/day_02/day_02_p_01.txt", "r") as f:
+#     data = [line.strip().split(": ") for line in f.readlines()]
+#     for i in range(len(data)):
+#         data[i][0] = data[i][0].split(" ")
+#         data[i][0][0] = data[i][0][0].split("-")
 
-def count_char(char,string):
-    count = 0
-    for i in string:
-        if i == char:
-            count+=1
-    return count
+# def count_char(char,string):
+#     count = 0
+#     for i in string:
+#         if i == char:
+#             count+=1
+#     return count
 
-def validate(passwords):
-    valid = []
-    for i in passwords:
-        if count_char(i[0][1],i[1]) in range(int(i[0][0][0]),int(i[0][0][1])+1):
-            valid.append(i[1])
-    return len(valid)
+# def validate(passwords):
+#     valid = []
+#     for i in passwords:
+#         if count_char(i[0][1],i[1]) in range(int(i[0][0][0]),int(i[0][0][1])+1):
+#             valid.append(i[1])
+#     return len(valid)
 
-print(validate(data))
+# print(validate(data))
 # Solution to Part 1 = 620
 
 # Part two
