@@ -47,7 +47,7 @@ How many passwords are valid according to their policies?
 
 # Part two
 
-with open("input/day_02/day_02_p_01.txt", "r") as f:
+with open("day_02/day_02_p_01.txt", "r") as f:
     data = [line.strip().split(": ") for line in f.readlines()]
     for i in range(len(data)):
         data[i][0] = data[i][0].split(" ")

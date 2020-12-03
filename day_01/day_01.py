@@ -40,7 +40,7 @@ In your expense report, what is the product of the three entries that sum to 202
 
 from functools import reduce
 
-with open("input/day_01/day_01_p_01.txt", "r") as f:
+with open("day_01/day_01_p_01.txt", "r") as f:
     data = f.readlines()
     puzzle_input = [int(line.strip()) for line in data]
 
