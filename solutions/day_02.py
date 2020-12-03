@@ -21,6 +21,7 @@ In the above example, 2 passwords are valid. The middle password, cdefg, is not;
 
 How many passwords are valid according to their policies?
 '''
+# Part one
 with open("input/day_02/day_02_p_01.txt", "r") as f:
     data = [line.strip().split(": ") for line in f.readlines()]
     for i in range(len(data)):
@@ -43,3 +44,44 @@ def validate(passwords):
 
 print(validate(data))
 # Solution to Part 1 = 620
+
+# Part two
+
+with open("input/day_02/day_02_p_01.txt", "r") as f:
+    data = [line.strip().split(": ") for line in f.readlines()]
+    for i in range(len(data)):
+        data[i][0] = data[i][0].split(" ")
+        data[i][0][0] = data[i][0][0].split("-")
+
+def validate(passwords):
+    valid = []
+    for i in passwords:
+        a = int(i[0][0][0]) -1
+        b = int(i[0][0][1]) -1
+        char = i[0][1]
+
+        if bool(i[1][a] == char) ^ bool(i[1][b] == char):
+            valid.append(i[1])
+
+    return len(valid)
+
+print(validate(data))
+# Solution to Part 2 = 727
+
+'''
+--- Part Two ---
+
+While it appears you validated the passwords correctly, they don't seem to be what the Official Toboggan Corporate Authentication System is expecting.
+
+The shopkeeper suddenly realizes that he just accidentally explained the password policy rules from his old job at the sled rental place down the street! The Official Toboggan Corporate Policy actually works a little differently.
+
+Each policy actually describes two positions in the password, where 1 means the first character, 2 means the second character, and so on. (Be careful; Toboggan Corporate Policies have no concept of "index zero"!) Exactly one of these positions must contain the given letter. Other occurrences of the letter are irrelevant for the purposes of policy enforcement.
+
+Given the same example list from above:
+
+    1-3 a: abcde is valid: position 1 contains a and position 3 does not.
+    1-3 b: cdefg is invalid: neither position 1 nor position 3 contains b.
+    2-9 c: ccccccccc is invalid: both position 2 and position 9 contain c.
+
+How many passwords are valid according to the new interpretation of the policies?
+'''
