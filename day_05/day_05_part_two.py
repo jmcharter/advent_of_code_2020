@@ -1,7 +1,13 @@
 with open("day_05/day_05.txt") as f:
     data = f.read().splitlines()
 
+
 def binary_search(line, start, end, lo, hi, char1, char2,):
+'''
+input data, first character to read, last character to read,
+lowest and highest value, and characters to search for.
+'''
+
     target = 0
     for char in line[start:end]:
         if char in char1:
